@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'login.my_context_processor.get_session',
             ],
         },
     },
@@ -133,4 +134,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/css'),
     os.path.join(BASE_DIR, 'static/js'),
     os.path.join(BASE_DIR, 'static/images'),
+
 ]
