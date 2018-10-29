@@ -8,6 +8,8 @@ from django.db import models
 class Book(models.Model):
     #_id主键
     book_id = models.IntegerField(primary_key=True)
+    # 图书名
+    book_name = models.CharField(max_length=20, blank=True, null=True)
     #图书作者
     book_author = models.CharField(max_length=20, blank=True, null=True)
     # 图书出版社
@@ -15,19 +17,17 @@ class Book(models.Model):
     # 操作员
     book_operator = models.CharField(max_length=20, blank=True, null=True)
     # 图书入库数量
-    book_put_num = models.IntegerField(blank=True, null=True)
+    book_put_num = models.CharField(max_length=20,blank=True, null=True)
     # 入库日期
-    book_putdate = models.DateField(auto_now_add=True)
-    # 图书名
-    book_name = models.CharField(max_length=20, blank=True, null=True)
+    book_put_date = models.DateField(auto_now_add=True)
     # 图书分类
     book_category = models.CharField(max_length=20, blank=True, null=True)
     # 图书出版数量
-    book_pubnum = models.IntegerField(blank=True, null=True)
+    book_pub_num = models.CharField(max_length=20,blank=True, null=True)
     # 图书价格
     book_price = models.DecimalField(max_digits=6,decimal_places=2)
     # 图书出版日期
-    book_pubdate = models.DateField(auto_now_add=True)
+    book_pub_date = models.DateField(auto_now_add=True)
     # 图书简介
     book_intro = models.TextField()
 
@@ -107,7 +107,7 @@ class Stu(models.Model):
     stu_name = models.CharField(max_length=15, blank=True, null=True)
     stu_age = models.IntegerField(blank=True, null=True)
     stu_birthday = models.DateField(blank=True, null=True)
-    stu_phone = models.IntegerField(blank=True, null=True)
+    stu_phone = models.CharField(max_length=11, blank=True, null=True)#位数有问题CharField
     # 民族
     stu_nation = models.CharField(max_length=3, blank=True, null=True)
 
@@ -157,7 +157,7 @@ class Teacher(models.Model):
     tea_natioin = models.CharField(max_length=10, blank=True, null=True)
 
     tea_birth = models.DateField(blank=True, null=True)
-    tea_phone = models.IntegerField(blank=True, null=True)
+    tea_phone = models.CharField(max_length=11,blank=True, null=True)
     tea_intro = models.TextField()
 
     class Meta:
@@ -184,7 +184,7 @@ class HeadTeacher(models.Model):
 
 #学生入学登记表
 class StuRegister(models.Model):
-    sr_id = models.IntegerField(primary_key=True)
+    sr_id = models.IntegerField(primary_key=True)#可以设自增
     #外键关联学生表/班级表
     stu = models.OneToOneField(Stu)
     clazz = models.ForeignKey(Clazz,on_delete=models.CASCADE)
@@ -192,10 +192,10 @@ class StuRegister(models.Model):
     stu_major = models.CharField(max_length=12, blank=True, null=True)
     #推荐人
     stu_recommender = models.CharField(max_length=10, blank=True, null=True)
-    #注册时间
+    #入学时间
     stu_enrollment = models.DateField(blank=True, null=True)
     #入学成绩
-    stu_score = models.IntegerField(blank=True, null=True)
+    stu_score = models.CharField(max_length=3,blank=True, null=True)
 
     def __unicode__(self):
         return u'学生登记:%s'%self.stu.stu_name

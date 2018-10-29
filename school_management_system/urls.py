@@ -20,5 +20,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #用户登录 数据库
-    url(r'^', include('login.urls')),
+    url(r'^login/', include('login.urls')),
+    #档案管理
+    url(r'^archive/', include('archives.urls')),
 ]
