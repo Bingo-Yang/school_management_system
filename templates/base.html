@@ -1,148 +1,90 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<style type="text/css"></style>
-	<title>校园管理系统</title>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>首页 - 统一开发平台 - UI库</title>
 
-	<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="{% static 'lrtk.css' %}">
-    <link rel="stylesheet" href="{% static 'zi.css' %}">
+		<meta name="description" content="This is page-header (.page-header &gt; h1)" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-	<!-- 下拉特效 Styles begin -->
-	<link rel="stylesheet" href="{% static 'bellows.css' %}">
-	<link rel="stylesheet" href="{% static 'bellows-theme.css' %}">
-	<!-- 下拉特效 Styles end -->
-    <script type="text/javascript" src="{% static 'jquery-1.12.3.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'cjjs.js' %}"></script>
+		<link rel="stylesheet" href="{% static '' %}bootstrap.min.css" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+{#		<link rel="stylesheet" href="{% static 'font-awesome.min.css' %}" />#}
+		<link rel="stylesheet" href="{% static '' %}ace.min.css" id="main-ace-style" />
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="{% static '' %}ace-part2.min.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="{% static '' %}ace-skins.min.css" />
+		<link rel="stylesheet" href="{% static '' %}ace-rtl.min.css" />
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="{% static '' %}ace-ie.min.css" />
+		<![endif]-->
+		<!--[if lte IE 8]>
+		<script src="{% static '' %}html5shiv.min.js"></script>
+		<script src="{% static '' %}respond.min.js"></script>
+		<![endif]-->
+	</head>
 
-    <style>
-        .bg{
-            background: url("{% static 'bg.jpg' %}");
-        }
-        span{
-            font-size: 8px;
-            color: red;
-        }
-    </style>
-</head>
+	<body class="no-skin" style="">
+		<div id="navbar" class="navbar navbar-default">
+            {% include 'header.html' %}
+		</div>
 
-<body>
+		<!-- /section:basics/navbar.layout -->
+		<div class="main-container" id="main-container">
 
-	<div id="logo_top">
+			<!-- #section:basics/sidebar -->
+			<div id="sidebar" class="sidebar responsive">
 
-	</div>
+                {% include 'left.html' %}
+			</div>
 
-	<!--menu begin-->
-	<div class="pc-menue">
-	    <div id="menu" style="width: 1000px">
-		    <ul class="l1-nav">
-				<li class="l1-nav"><a class="l1-nav" href="/">网站首页</a> </li>
-				<li class="l1-nav"><a class="l1-nav" href="#">档案管理</a>
-					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="/archive/student/">学生基本信息</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/archive/start/">学生入校登记</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/archive/stu_up/">学生信息维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/archive/select/">学生登记查询</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/archive/teacher/">教师基本信息</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/archive/tea_up/">教师信息维护</a> </li>
-					</ul>
-				</li>
-				
-				<li class="l1-nav"><a class="l1-nav" href="#">成绩管理</a>
-					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="/mark/register/">成绩录入</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/mark/select/">成绩查询</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/mark/stat/">班级成绩统计</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/mark/grade/">年级成绩统计</a> </li>
-					</ul>	
-				</li>			
-				
-				
-				
-				<li class="l1-nav"><a class="l1-nav" href="#">教职工管理</a>
-					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="/login/t_course/">教职任课</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/login/t_master/">班主任信息</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/login/select_teacher/">任课教师查询</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/login/select_master">班主任查询</a> </li>
-					</ul>
-				</li>
-				
-				<li class="l1-nav"><a class="l1-nav" href="#">图书馆管理</a>
-					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="/books_system/book_register/">图书登记</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/books_system/book_data/">图书信息查询</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/books_system/borrow_register/">图书借阅登记</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/books_system/borrow_information/">借阅信息查询</a> </li>
-					</ul>	
-				</li>	
-						
-				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/zzjg">代码维护</a> 
-					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="/maintain/major/">专业代码维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/maintain/grade/">年级代码维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/maintain/clazz/">班级代码维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/maintain/course/">学科代码维护</a> </li>
-					</ul>
-				</li>
-				
-				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/jwc/">用户维护</a> 
+			<!-- /section:basics/sidebar -->
+			<div class="main-content">
+				<!-- #section:basics/content.breadcrumbs -->
+				<div class="breadcrumbs" id="breadcrumbs">
+					{% include 'search.html' %}
+				</div>
 
-					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="/users/register/">用户添加</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="/users/select/">用户查询</a> </li>
-					</ul>
+				<div class="page-content">
+                {% block main %}
 
+                {% endblock %}
+				</div><!-- /.page-content -->
+			</div><!-- /.main-content -->
 
+			<div class="footer">
+                {% include 'footer.html' %}
+			</div>
 
-				
-				<li class="l1-nav"><a class="l1-nav" href="/dologin.">系统信息</a> </li>
-			</ul>
-	    </div>
-	</div>
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
 
+		<!--[if !IE]> -->
+			<script type="text/javascript">
+				window.jQuery || document.write("<script src='{% static '' %}jquery.min.js'>"+"<"+"/script>");
+			</script>
+		<!-- <![endif]-->
+		<!--[if IE]>
+			<script type="text/javascript">
+			 window.jQuery || document.write("<script src='{% static '' %}jquery1x.min.js'>"+"<"+"/script>");
+			</script>
+		<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='{% static '' %}jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="{% static '' %}bootstrap.min.js"></script>
+		<!--[if lte IE 8]>
+		  <script src="{% static '' %}excanvas.min.js"></script>
+		<![endif]-->
+		<script src="{% static '' %}jquery-ui.custom.min.js"></script>
+		<script src="{% static '' %}jquery.ui.touch-punch.min.js"></script>
+		<script src="{% static '' %}ace-elements.min.js"></script>
+		<script src="{% static '' %}ace.min.js"></script>
 
-
-
-
-
-    <div id="middle" style="">
-        <div class="left">
-            <p>当前用户：{{ name }}</p>
-            <a href="/"><button >重新登录</button></a>
-            <button onClick="window.location.href='about:blank';window.close();" >退出系统</button>
-        </div>
-        <div class='content'>
-            {% block main %}
-
-            {% endblock %}
-        </div>
-        <div class="right"></div>
-    </div>
-
-
-
-<div class="bg">666</div>
-
-
-
-
-
-
-
-
-
-
-
-{#    <div style="width: 100%; height: 100px;background-color:#cccccc ;position:absolute;bottom:0;">#}
-{#        <br>#}
-{#        <p style="font-size: 5px;text-align: center">©待定组 『李长生 史贺 赵智博 薛坤』</p>#}
-{#        <p style="font-size: 5px;text-align: center">重剑无锋&emsp;大巧不工</p>#}
-{##}
-{#    </div>#}
-{#<div class="bg"></div>#}
-</body></html>
-
-
+	</body>
+</html>
