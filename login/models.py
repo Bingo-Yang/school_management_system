@@ -101,13 +101,13 @@ class Stu(models.Model):
     # 地址
     stu_addr = models.CharField(max_length=50, blank=True, null=True)
     # 政治面貌
-    stu_political = models.CharField(max_length=10, blank=True, null=True)
+    stu_political = models.CharField(max_length=10, blank=True, null=True,unique=True)#改动
     # 健康状况
-    stu_healthy = models.CharField(max_length=10, blank=True, null=True)
+    stu_healthy = models.CharField(max_length=10, blank=True, null=True,unique=True)#改动
     stu_name = models.CharField(max_length=15, blank=True, null=True)
     stu_age = models.IntegerField(blank=True, null=True)
     stu_birthday = models.DateField(blank=True, null=True)
-    stu_phone = models.CharField(max_length=11, blank=True, null=True)#位数有问题CharField
+    stu_phone = models.CharField(max_length=11, blank=True, null=True,unique=True)#位数有问题CharField
     # 民族
     stu_nation = models.CharField(max_length=3, blank=True, null=True)
 
@@ -195,7 +195,7 @@ class StuRegister(models.Model):
     #入学时间
     stu_enrollment = models.DateField(blank=True, null=True)
     #入学成绩
-    stu_score = models.CharField(max_length=3,blank=True, null=True)
+    stu_score = models.IntegerField(blank=True, null=True)#改动
 
     def __unicode__(self):
         return u'学生登记:%s'%self.stu.stu_name
