@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block main %}
+    <form action="/teach/coursetea/" method="post">
+    {% csrf_token %}
+    {{ t1 }}
+    <table align="center" style="margin-top: 50px;" >
+    <tr>
+        <td>请输入查询条件: <select name="query" id="">
+            <option value="任职科目">任职科目</option>
+            <option value="教师姓名">教师姓名</option>
+        </select>
+        </td>
+        <td><input type="text" name="teacher" ><input type="submit" value="提交" name="提交"></td>
+    </tr>
+    </table>
+    <table align="center" border="1" cellspacing="0" cellpadding="0" width="1000px;" style="text-align: center; margin-top: 50px;">
+    <tr>
+        <td>教师编号</td>
+        <td>教师姓名</td>
+        <td>任职性别</td>
+        <td>教师专业</td>
+        <td>婚否</td>
+        <td>任职日期</td>
+    </tr>
+    {% for tc in tsc %}
+    <tr>
+        <td>{{ tc.teacher.tea_id }}</td>
+        <td>{{ tc.teacher.tea_name }}</td>
+        <td>{{ tc.teacher.tea_gender }}</td>
+        <td>{{ tc.teacher.major.maj_name }}</td>
+        <td>{{ tc.teacher.tea_marry }}</td>
+        <td>{{ tc.tea_in_date}}</td>
+    </tr>
+         {% endfor %}
+
+    </table>
+    </form>
+{% endblock %}

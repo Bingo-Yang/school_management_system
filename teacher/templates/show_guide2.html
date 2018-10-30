@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block main %}
+     <form action="/teach/showguide2/" method="post">
+     {% csrf_token %}
+    <br><br><label for="" style="margin-left: 520px; margin-top: 200px;">请输入教师编号: <input type="text" name="ht_id"></label>
+    <table  border="1" style="width: 800px; text-align: center; margin-top: 50px;" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+             <td>教师姓名</td>
+             <td>性别</td>
+             <td>年龄</td>
+             <td>学历</td>
+             <td>授课专业</td>
+             <td>婚否</td>
+        </tr>
+        {% for hr in htr %}
+        <tr>
+             <td>{{hr.teacher.tea_name}}</td>
+             <td>{{ hr.teacher.tea_gender }}</td>
+             <td>{{ hr.teacher.tea_age }}</td>
+             <td>{{ hr.teacher.tea_edu }}</td>
+             <td>{{ hr.teacher.major.maj_name }}</td>
+             <td>{{ hr.teacher.tea_marry }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+        {% for c1 in clz1 %}
+        <br><label for="" style="margin-left: 350px;">班级名称: <select name="clazz" id="">
+            <option value="{{ c1.c_id }}" >{{ c.cls_name }}</option>
+        </select>
+        </label>
+        {% endfor %}
+        {% for h in hd %}
+        <label for="" style="margin-left: 400px;">专业: <input type="text" name="major" placeholder="{{ h.teacher.major.maj_name }}"></label>
+        <br><br><label for="" style="margin-left: 350px;">年级: <input type="text" name="grade" style="margin-left: 30px;" placeholder="{{ h.clazz.grade.gra_name }}"></label>
+        <label for="" style="margin-left: 280px;">任职日期: <input type="text" name="tea_date" placeholder="{{ h.ht_in_date }}"></label>
+
+            {% endfor %}
+         <br><br><a href="/teach/showguide/" style="margin-left: 50%">返回</a>
+    </form>
+
+
+{% endblock %}
+

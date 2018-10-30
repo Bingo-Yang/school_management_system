@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block main %}
+    <h2 style="text-align: center">任课教师信息展示</h2>
+    <hr>
+    <form action="/teach/querytea/" method="post">
+        {% csrf_token %}
+        <a ><label for="" style="margin-left: 350px;"> 教师编号:<input type="text" name="ts_id"><input type="submit" value="查询"></label></a>
+        <label for="" style="margin-left: 70px;">任职科目:</label>
+{#        <select name="t_course" id=""  style="margin-top: 30px;">#}
+            {% for ts in tcs %}
+                <input type="checkbox" value="{{ ts.course.cour_id }}" checked="checked">{{ ts.course.cour_name }}
+             {% endfor %}
+        <hr>
+{#        </select>#}
+        <table border="1" style="margin-left: 290px;margin-top: 50px; width: 800px; text-align: center " cellpadding="0"  cellspacing="0">
+            <tr>
+                <td>教师姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>学历</td>
+                <td>授课专业</td>
+                <td>任课科目</td>
+                <td>任课日期</td>
+                <td>婚否</td>
+            </tr>
+            {% for ts in tcs %}
+            <tr>
+                <td>{{ ts.teacher.tea_name }}</td>
+                <td>{{ ts.teacher.tea_gender }}</td>
+                <td>{{ ts.teacher.tea_age }}</td>
+                <td>{{ ts.teacher.tea_edu }}</td>
+                <td>{{ ts.teacher.major.maj_name}}</td>
+                <td>{{ ts.course.cour_name }}</td>
+                <td>{{ ts.tea_in_date }}</td>
+                <td>{{ ts.teacher.tea_marry}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br><a href="/teach/show/" style="margin-left: 50%;">返回</a>
+    </form>
+{% endblock %}

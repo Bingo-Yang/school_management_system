@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #用户登录 数据库
     url(r'^', include('login.urls')),
+    #教职工
+    url(r'^teach/', include('teacher.urls')),
 ]

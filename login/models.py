@@ -163,9 +163,9 @@ class Teacher(models.Model):
     class Meta:
         db_table = 't_teacher'
 
-# 班主任任免表
+# 班主任任职表
 class HeadTeacher(models.Model):
-    ht_id = models.IntegerField(primary_key=True)
+    ht_id = models.AutoField(primary_key=True)
     #外键关联教师/班级表
     teacher = models.OneToOneField(Teacher, on_delete=models.CASCADE)
     clazz = models.OneToOneField(Clazz,on_delete=models.CASCADE)
@@ -227,7 +227,7 @@ class StuScore(models.Model):
 
 # 教师任课表
 class TeachingStaff(models.Model):
-    ts_id = models.IntegerField(primary_key=True)
+    ts_id = models.AutoField(primary_key=True)
     teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE)
     course = models.ForeignKey(Course,on_delete=models.CASCADE)
     #任课时间
