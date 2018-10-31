@@ -11,8 +11,9 @@
         {% endfor %}
         </label>
         <label for="" style="margin-left: 70px;">  任职日期<input type="date" name="tea_date"></label>
-        <table border="1" style="margin-left: 290px;margin-top: 50px; width: 800px; text-align: center " cellpadding="0" cellspacing="0">
+        <table border="3" style="margin-left: 290px;margin-top: 50px; width: 800px; text-align: center ;border-color: #0000FF;font-size: 16px" cellpadding="0" cellspacing="0">
             <tr>
+                <td>教师编号</td>
                 <td>教师姓名</td>
                 <td>性别</td>
                 <td>年龄</td>
@@ -20,20 +21,21 @@
                 <td>授课专业</td>
                 <td>婚否</td>
             </tr>
-            {% for tl in tal %}
+            {% for txx in teaxinxis %}
             <tr>
-                <td>{{ tl.tea_name }}</td>
-                <td>{{ tl.tea_gender }}</td>
-                <td>{{ tl.tea_age }}</td>
-                <td>{{ tl.tea_edu }}</td>
-                <td>{{ tl.major.maj_name}}</td>
-                <td>{{ tl.tea_marry}}</td>
+                <td>{{ txx.tea_id }}</td>
+                <td>{{ txx.tea_name }}</td>
+                <td>{{ txx.tea_gender }}</td>
+                <td>{{ txx.tea_age }}</td>
+                <td>{{ txx.tea_edu }}</td>
+                <td>{{ txx.major.maj_name}}</td>
+                <td>{{ txx.tea_marry}}</td>
             </tr>
             {% endfor %}
         </table>
         <input type="submit" href="/teach/show/" value="提交" style="margin-left: 600px; margin-top: 50px;" name="submit">
         <input type="reset" value="重置" style="margin-left: 50px; margin-top: 50px;" name="submit">
-        <a href="/teach/querytea/" style="margin-left: 50px;">展示</a>
+        <a href="/teach/querytea/" style="margin-left: 50px;font-size: 18px;color: red">查询任课老师任课情况，请点我！</a>
 
 
     </form>

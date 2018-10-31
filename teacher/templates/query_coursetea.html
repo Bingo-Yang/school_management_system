@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block main %}
-    <h2 style="text-align: center">任课教师信息展示</h2>
+    <h1 style="text-align: center">任课教师信息展示</h1>
     <hr>
     <form action="/teach/querytea/" method="post">
         {% csrf_token %}
@@ -12,7 +12,7 @@
              {% endfor %}
         <hr>
 {#        </select>#}
-        <table border="1" style="margin-left: 290px;margin-top: 50px; width: 800px; text-align: center " cellpadding="0"  cellspacing="0">
+        <table border="3" style="margin-left: 290px;margin-top: 50px; width: 800px; text-align: center;border-color:  #0000FF ;font-size: 16px" cellpadding="0"  cellspacing="0">
             <tr>
                 <td>教师姓名</td>
                 <td>性别</td>
@@ -29,13 +29,13 @@
                 <td>{{ ts.teacher.tea_gender }}</td>
                 <td>{{ ts.teacher.tea_age }}</td>
                 <td>{{ ts.teacher.tea_edu }}</td>
-                <td>{{ ts.teacher.major.maj_name}}</td>
+                <td>{{ ts.teacher.major.maj_name }}</td>
                 <td>{{ ts.course.cour_name }}</td>
                 <td>{{ ts.tea_in_date }}</td>
-                <td>{{ ts.teacher.tea_marry}}</td>
+                <td>{{ ts.teacher.tea_marry }}</td>
             </tr>
             {% endfor %}
         </table>
-        <br><br><a href="/teach/show/" style="margin-left: 50%;">返回</a>
+        <br><br><a href="/teach/show/" style="margin-left: 50%;font-size: 18px;color: darkviolet">返回</a>
     </form>
 {% endblock %}

@@ -23,4 +23,7 @@ urlpatterns = [
     url(r'^', include('login.urls')),
     #教职工
     url(r'^teach/', include('teacher.urls')),
+    url(r'^login/', include('login.urls')),
+    #档案管理
+    url(r'^archive/', include('archives.urls')),
 ]

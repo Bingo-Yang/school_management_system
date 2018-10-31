@@ -11,7 +11,7 @@
 
 		<link rel="stylesheet" href="{% static '' %}bootstrap.min.css" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-{#		<link rel="stylesheet" href="{% static '' %}font-awesome.min.css" />#}
+{#		<link rel="stylesheet" href="{% static 'font-awesome.min.css' %}" />#}
 		<link rel="stylesheet" href="{% static '' %}ace.min.css" id="main-ace-style" />
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="{% static '' %}ace-part2.min.css" />
@@ -27,7 +27,7 @@
 		<![endif]-->
 	</head>
 
-	<body class="no-skin">
+	<body class="no-skin" style="">
 		<div id="navbar" class="navbar navbar-default">
             {% include 'header.html' %}
 		</div>
